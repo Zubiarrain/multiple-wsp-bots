@@ -5,7 +5,7 @@ services:
     build: ./chatbot1/base-ts-baileys-memory
     container_name: chatbot1
     ports:
-      - "3001:3008"  # Exponer el puerto 3001 del contenedor en el puerto 3001 del servidor
+      - "3001:8080"  # Exponer el puerto 3001 del contenedor en el puerto 3001 del servidor
     environment:
       - NODE_ENV=production
     volumes:
@@ -17,7 +17,7 @@ services:
     build: ./chatbot2/base-ts-baileys-memory
     container_name: chatbot2
     ports:
-      - "3002:3008"  # Exponer el puerto 3002 del contenedor en el puerto 3002 del servidor
+      - "3002:8080"  # Exponer el puerto 3002 del contenedor en el puerto 3002 del servidor
     environment:
       - NODE_ENV=production
     volumes:
