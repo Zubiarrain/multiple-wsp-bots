@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  chatbot1:
+    build: ./chatbot1/base-ts-baileys-memory
+    container_name: chatbot1
+    ports:
+      - "3001:3008"  # Exponer el puerto 3001 del contenedor en el puerto 3001 del servidor
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./chatbot1/base-ts-baileys-memory/dist:/app/src
+    restart: always
+    command: ["node", "/app/src/app.js"]
+
+  chatbot2:
+    build: ./chatbot2/base-ts-baileys-memory
+    container_name: chatbot2
+    ports:
+      - "3002:3008"  # Exponer el puerto 3002 del contenedor en el puerto 3002 del servidor
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./chatbot2/base-ts-baileys-memory/dist:/app/src
+    restart: always
+    command: ["node", "/app/src/app.js"]
